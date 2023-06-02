@@ -1,0 +1,6 @@
+.background{
+    position: relative;
+    height: 100vh; /*covers the whole page*/
+    width: 100%;
+    background-image: url(".../background-image");
+}
