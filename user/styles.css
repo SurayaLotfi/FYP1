@@ -1,0 +1,47 @@
+.navbar-brand{
+    font-size: 30px;
+    font-family: 'Source Sans Pro', sans-serif;
+    
+}
+
+.navbar-bg {
+    background-image: url("images/home-header.png");
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+}
+
+.nav-item .nav-link{
+   color: white;
+   font-family: 'Source Sans Pro', sans-serif;
+}
+
+.text{
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+
+.card-text-above{
+    text-align: center;
+    color: white;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif; ;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.col img{
+    display: flex;
+    align-items: end;
+}
+
+.navbar-nav li{
+    padding: 0 5px; /*0 for top and bottom, 10 for left and right.*/
+}
+
