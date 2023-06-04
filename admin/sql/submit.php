@@ -22,7 +22,7 @@ if(isset($_POST['submit']) && isset($_POST['editor'])){
         $statusMsg = 'Please add content in the editor.';
     }
 }else{
-    echo "Enter Content";
+    
 }
 
 ?>
