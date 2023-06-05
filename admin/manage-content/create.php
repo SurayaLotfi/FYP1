@@ -1,5 +1,5 @@
 <?php
- include_once '../sql/submit.php';
+ include_once 'submit.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">   
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../styles/home.css">
 
@@ -99,28 +100,32 @@
         </div>
     
         <!-- Buttons-->
-        
+        <div id="content">
             <div class="container">
             <!-- We'll fill this with dummy content -->
             <div class="row">   
             <h1>Manage Content</h1>
-            <br>
+            
             </div>
             <div class="row">
-            <a href="../manage-content/create.php">
-            <button type="button" class="btn btn-info active">Create Content</button>
-            </a>
-            <a href="../manage-content/upload.php">
-            <button type="button" class="btn btn-info">Upload Content</button>
-            </a>
-            <a href="/admin/manage.php">
-            <button type="button" class="btn btn-info ">View</button>
+                <div class="buttons">
+                    <a href="manage.php">
+                    <button type="button" class="btn btn-info ">View</button>
+                    </a>
+                    <a href="upload.php">
+                    <button type="button" class="btn btn-info">Upload Content</button>
+                    </a>
+                    <a href="create.php">
+                    <button type="button" class="btn btn-info active">Create Content</button>
+                    </a>
+                </div>
             </div>
         <br>
         
         
 
         <!--Create Content-->
+        
         <div class="container">
            
            
@@ -130,11 +135,20 @@
 
             <form method="post" action="">
                 <textarea name="editor" id="editor" rows="10" cols="80">
-                This is my textarea to be replaced with HTML editor.
+                Enter text
                 </textarea>
-                <input type="submit" name="submit" value="SUBMIT">
-            </form>
 
+                <form>
+                    <div class="form-group">
+                        <label for="content-type-select"><h3>Post to:</h3></label>
+                        <select class="form-control" id="content-type-select" name="content_type">
+                            <option value="knowledge_base">Knowledge Base</option>
+                            <option value="classes">Classes</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info" name="submit">SUBMIT</button>
+                    </form>
 
             <?php if(!empty($statusMsg)){ ?>
 
@@ -147,7 +161,7 @@
             <script>
                 CKEDITOR.replace('editor');
             </script>
-            
+        </div> 
             
         </div>
     </div>  
@@ -158,7 +172,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!--JScript to handle dropdown select-->
+    <script>
+$(document).ready(function() {
+  $('.dropdown-item').on('click', function() {
+    var selectedValue = $(this).data('value');
+    $('#content-type-input').val(selectedValue);
+    $('.dropdown-toggle').text('Post to ');
+    $('.dropdown-toggle').append('<span class="caret"></span>');
+  });
+});
 
+
+        </script>
+           
     <script>
     
     $(document).ready(function () {
