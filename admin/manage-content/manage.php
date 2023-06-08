@@ -150,8 +150,9 @@
                         $content_format=$row['content_format'];
                         $content_type=$row['content_type'];
                         $date_created=$row['date_created'];
-                        echo
+                        echo 
                          "
+                         
                         <tr>
                             <td>" . $i ."</td>
                             <td>" . $content_name ."</td>
