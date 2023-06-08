@@ -185,8 +185,10 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
 // delete
 include "dbConfig.php";
 
-if(isset($_GET['deleteid'])){
-   $id = $_GET['deleteid'];
+if(isset($_POST['deleteid'])){
+   $id = $_POST['deleteid'];
+
+
 
    $sql = "DELETE FROM manage_content WHERE id=$id";
    $result = mysqli_query($db,$sql);
@@ -199,6 +201,24 @@ if(isset($_GET['deleteid'])){
 }else{
    
 }
+
+// update
+// include "dbConfig.php";
+
+// if(isset($_POST['updateid'])){
+//    $id = $_POST['updateid'];
+
+//    $sql = "DELETE FROM manage_content WHERE id=$id";
+//    $result = mysqli_query($db,$sql);
+//    if($result){
+//       echo "Deleted successfully";
+//       header('location: manage.php');
+//    }else{
+//       echo "Connection failed";
+//    }
+// }else{
+   
+// }
 
 
 
