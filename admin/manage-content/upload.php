@@ -34,7 +34,7 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>Welcome, Admin</h3>
             </div>
     
             <ul class="list-unstyled components">
@@ -46,119 +46,191 @@
                     <a href="manage.php">Manage Content</a>
                 </li>
                 <li>
-                    <a href="/admin/kb.php">Knowledge Base</a>
-                </li>
-                <!-- <li >
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">View Content</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Courses</a>
-                        </li>
-                        <li>
-                            <a href="#">Document</a>
-                        </li>
-                        <li>
-                            <a href="#">Videos</a>
-                        </li>
-                    </ul>
-                </li> -->
-                <li>
-                    <a href="/admin/class.php">Classes</a>
+                    <a href="/admin/onboarding/onboarding.php">Onboarding</a>
                 </li>
                 <li>
-                    <a href="/admin/onboarding.php">Onboarding</a>
+                    <a href="/admin/dashboard/dashboard.php">Dashboard</a>
                 </li>
-                <!-- <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Upload Content</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li> -->
-
                 <li>
-                    <a href="#">Logout</a>
+                    <a href="/Sign up/logout.php">Logout</a>
                 </li>
             </ul>
+
         </nav>
-        <div id="home">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-        
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin: 0px">
-                        <i class="fas fa-align-left"></i>
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
-        </div>
+
     
         <!-- Home -->
-        <div id="content">
-            <div class="container">
+     <div class="container-fluid" style="margin-left: 10px">
             <!-- We'll fill this with dummy content -->
-            <div class="row">
-                <br>
-                <h1>Manage Content</h1>
-            </div>
-            <div class="row">
-                <div class="buttons">
-                <a href="manage.php">
-                    <button type="button" class="btn btn-info ">View</button>
-                    </a>
-                    <a href="upload.php">
-                    <button type="button" class="btn btn-info active">Upload Content</button>
-                    </a>
-                    <a href="create.php">
-                    <button type="button" class="btn btn-info ">Create Content</button>
-                    </a>
+            <div class="row" style="margin-top: 20px">
+                <div style="margin-left: 3px">
+                    <h3>Manage Content</h3>
+                </div>
+                <div class="row">
+                    <div class="buttons">
+                    <a href="manage.php">
+                        <button type="button" class="btn btn-info ">View</button>
+                        </a>
+                        <a href="upload.php">
+                        <button type="button" class="btn btn-info active">Upload Content</button>
+                        </a>
+                        <a href="create.php">
+                        <button type="button" class="btn btn-info ">Create Content</button>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!--Uploads-->
-            
-            <div class="row">
-                <h1>Upload Content</h1>
-            </div>
-            <div class="container">
-            <div class="row">
+        
+            <!-- <div class="container">
+            <div class="row"> -->
                 
     
                 <?php
                     include_once "submit.php";
                 ?> 
-            <!--Form for Video-->
-            <form action="" method="post"  enctype="multipart/form-data">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                <!--PDF-->
+                <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Upload PDF Form</strong>
+                </h5>
+                <div class="card-body  px-lg-5 pt-0">
+                    <div class="container" style="display: flex; justify-content: center; align-items: center">
+                    <div class="row" style="padding: 10px"><br><br>
+                        <form action="" method="post" enctype="multipart/form-data" >
+                            <!--Document Title-->
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="content_name" name="content_name" placeholder="Enter Title">
+                            </div>
+
+                            <!--Enter Content Type-->
+                            <div class="form-group">
+                                    <label for="content-type-select"><h6>Post to:</h6></label>
+                                    <select class="form-control" id="content-type-select" name="content_type">
+                                        <option value="knowledge_base">Knowledge Base</option>
+                                        <option value="classes">Classes</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                            </div>
+
+                        <label for="subject" class="">Upload File</label>
+                        <br>
+                        <input type="file" name="my_pdf"> 
+                        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="submit" type="submit">UPLOAD</button>
+                        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .pdf only</i></font></footer>
+                        </form>
+                    </div>
+                    </div>  
+                </div>
+                </div>
+                </div>
+                <!--Video-->
+                <div class="col">
+                <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Upload Video Form</strong>
+                </h5>
+                <div class="card-body  px-lg-5 pt-0">
+                    <div class="container" style="display: flex; justify-content: center; align-items: center">
+                    <div class="row" style="padding: 10px"><br><br>
+                        <form action="" method="post" enctype="multipart/form-data" >
+                            <!--Document Title-->
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="content_name" name="content_name" placeholder="Enter Title">
+                            </div>
+
+                            <!--Enter Content Type-->
+                            <div class="form-group">
+                                    <label for="content-type-select"><h6>Post to:</h6></label>
+                                    <select class="form-control" id="content-type-select" name="content_type">
+                                        <option value="knowledge_base">Knowledge Base</option>
+                                        <option value="classes">Classes</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                            </div>
+
+                        <label for="subject" class="">Upload Video</label><br>
+                        <input type="file" name="my_video">
+                        
+                        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="submit" type="submit">UPLOAD</button>
+                        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .png .jpeg only</i></font></footer>
+                        </form>
+                    </div>
+                    </div>  
+                </div>
+                </div>
+                </div>
+                <!--Image-->
+                <div class="col" style="margin-top: 30px;">
+                <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Upload Image Form</strong>
+                </h5>
+                <div class="card-body  px-lg-5 pt-0">
+                    <div class="container" style="display: flex; justify-content: center; align-items: center">
+                    <div class="row" style="padding: 10px"><br><br>
+                        <form action="" method="post" enctype="multipart/form-data" >
+                            <!--Document Title-->
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="content_name" name="content_name" placeholder="Enter Title">
+                            </div>
+
+                            <!--Enter Content Type-->
+                            <div class="form-group">
+                                    <label for="content-type-select"><h6>Post to:</h6></label>
+                                    <select class="form-control" id="content-type-select" name="content_type">
+                                        <option value="knowledge_base">Knowledge Base</option>
+                                        <option value="classes">Classes</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                            </div>
+
+                        <label>Upload Image</label>
+                        <input type="file" name="my_image">
+                        
+                        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="submit" type="submit">UPLOAD</button>
+                        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .png .jpeg only</i></font></footer>
+                        </form>
+                    </div>
+                    </div>  
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+            <!-- Form for Video -->
+            <!-- <form action="" method="post"  enctype="multipart/form-data"> -->
 
                 <!--Enter Content Name-->
-                    <div class="input-group mb-3" style="margin: 10px;">
+                    <!-- <div class="input-group mb-3" style="margin: 10px;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Enter Content Name</span>
                         </div>
                         <input type="text"  name= "content_name" id="content_name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
-            
+             -->
 
 
                 <!--Enter Content Type-->
-                <div class="form-group" style="margin: 10px;">
+                <!-- <div class="form-group" style="margin: 10px;">
                         <label for="content-type-select"><h6>Post to:</h6></label>
                         <select class="form-control" id="content-type-select" name="content_type">
                             <option value="knowledge_base">Knowledge Base</option>
                             <option value="classes">Classes</option>
                             <option value="both">Both</option>
                         </select>
-                </div>
+                </div> -->
 
                              <!--Content: Video-->
-                 
+<!--                  
                 <?php if (isset($_GET['error'])) {  ?>
                     <p><?=$_GET['error']?></p>
                 <?php } ?>
@@ -172,33 +244,33 @@
                 <div style="margin: 15px;">
                     <input type="submit" name="submit"  value="Upload Video">
                 </div>
-                </form>
+                </form> -->
 
                 
                 <!--Form for Images-->   
-                <form action="submit.php" method="post" enctype="multipart/form-data">
+                <!-- <form action="" method="post" enctype="multipart/form-data"> -->
 
                 <!--Enter Content Name-->
-                    <div class="input-group mb-3" style="margin: 10px;">
+                    <!-- <div class="input-group mb-3" style="margin: 10px;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Enter Content Name</span>
                         </div>
                         <input type="text"  name= "content_name" id="content_name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                    </div>
+                    </div> -->
 
 
                 <!--Enter Content Type-->
-                <div class="form-group" style="margin: 10px;">
+                <!-- <div class="form-group" style="margin: 10px;">
                         <label for="content-type-select"><h6>Post to:</h6></label>
                         <select class="form-control" id="content-type-select" name="content_type">
                             <option value="knowledge_base">Knowledge Base</option>
                             <option value="classes">Classes</option>
                             <option value="both">Both</option>
                         </select>
-                </div>
+                </div> -->
 
                 
-                <div style="margin: 15px;">
+                <!-- <div style="margin: 15px;">
                             <label>Image</label>
                             <input type = "file" name="my_image">
                 </div>
@@ -207,32 +279,32 @@
                     <input type="submit" name="submit"  value="Upload Image">
                 </div>
 
-            </form>
+            </form> -->
 
                            <!--Form for PDF-->   
-                           <form action="submit.php" method="post" enctype="multipart/form-data">
+                           <!-- <form action="" method="post" enctype="multipart/form-data"> -->
 
                                 <!--Enter Content Name-->
-                                    <div class="input-group mb-3" style="margin: 10px;">
+                                    <!-- <div class="input-group mb-3" style="margin: 10px;">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroup-sizing-default">Enter Content Name</span>
                                         </div>
                                         <input type="text"  name= "content_name" id="content_name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                                    </div>
+                                    </div> -->
 
 
                                 <!--Enter Content Type-->
-                                <div class="form-group" style="margin: 10px;">
+                                <!-- <div class="form-group" style="margin: 10px;">
                                         <label for="content-type-select"><h6>Post to:</h6></label>
                                         <select class="form-control" id="content-type-select" name="content_type">
                                             <option value="knowledge_base">Knowledge Base</option>
                                             <option value="classes">Classes</option>
                                             <option value="both">Both</option>
                                         </select>
-                                </div>
+                                </div> -->
 
 
-                                <div style="margin: 15px;">
+                                <!-- <div style="margin: 15px;">
                                             <label>PDF</label>
                                             <input type = "file" name="my_pdf">
                                 </div>
@@ -241,22 +313,15 @@
                                     <input type="submit" name="submit"  value="Upload PDF">
                                 </div>
 
-                                </form>
+                                </form> -->
 
 
-                    <!-- Upload response -->
-                <!-- <?php 
-                // if(isset($_SESSION['message'])){
-                // echo $_SESSION['message'];
-                // unset($_SESSION['message']);
-                // }
-                ?> -->
                
                
 
 
-            </div>
-            </div>
+            <!-- </div>
+            </div> -->
         </div>
         </div>  
    
@@ -280,6 +345,42 @@
     });
     
     </script>
+            <!--Output upload success!-->
+            <?php 
+            if(isset($_GET['status'])){
+                $status = $_GET['status'];
+                if($status === 'success'){
+                    ?>
+                    <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Upload Successful!',
+                        text: 'The file has been uploaded.'
+                       })
+                    </script>
+               <?php
+                }elseif($status === 'error'){
+                    ?>
+                    <script>
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Upload UnSuccessful!',
+                        text: 'It seems like there was a problem.'
+                       })
+                    </script>
+                    <?php
+                }else if($status === 'wrongformat'){
+                    ?>
+                                        <script>
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Wrong format!',
+                        text: 'Please enter the correct format.'
+                       })
+                    </script>
+                    <?php
+                }
+            }?>
 
 </body>
 

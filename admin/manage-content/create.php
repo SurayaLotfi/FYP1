@@ -33,11 +33,11 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>Welcome, Admin</h3>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
+                <p>Admin</p>
                 <li>
                     <a href="/admin/home.php">Home</a>
                 </li>
@@ -45,66 +45,27 @@
                     <a href="/admin/manage.php">Manage Content</a>
                 </li>
                 <li>
-                    <a href="/admin/kb.php">Knowledge Base</a>
-                </li>
-                <!-- <li >
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">View Content</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Courses</a>
-                        </li>
-                        <li>
-                            <a href="#">Document</a>
-                        </li>
-                        <li>
-                            <a href="#">Videos</a>
-                        </li>
-                    </ul>
-                </li> -->
-                <li>
-                    <a href="/admin/class.php">Classes</a>
+                    <a href="/admin/kb.php">Onboarding</a>
                 </li>
                 <li>
-                    <a href="/admin/onboarding.php">Onboarding</a>
+                    <a href="/admin/class.php">Dashboard</a>
                 </li>
-                <!-- <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Upload Content</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li> -->
-
                 <li>
                     <a href="#">Logout</a>
                 </li>
             </ul>
         </nav>
-        <div id="home">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-        
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" style="margin: 0px">
-                        <i class="fas fa-align-left"></i>
-                        <span></span>
-                    </button>
-                </div>
-            </nav>
-        </div>
+
     
         <!-- Buttons-->
-        <div id="content">
-            <div class="container">
+        
+        <div class="container-fluid" style="margin-left: 19px">
             <!-- We'll fill this with dummy content -->
-            <div class="row">   
-            <h1>Manage Content</h1>
+            <div class="row" style="margin-top: 20px">
+          
+            <div style="margin-left: 6px">
+                <h3>Manage Content</h3>
+            </div>
             
             </div>
             <div class="row">
@@ -126,7 +87,7 @@
 
         <!--Create Content-->
         
-        <div class="container">
+        <div class="container" style="padding: 50px; padding-top: 5px">
            
            
             <?php if(!empty($statusMsg)){?>
@@ -137,6 +98,14 @@
                 <textarea name="editor" id="editor" rows="10" cols="80">
                 Enter text
                 </textarea>
+
+            <!--Enter Content Name-->
+            <div class="input-group mb-3" style="margin: 10px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Enter Content Name</span>
+                    </div>
+                        <input type="text"  name= "content_name" id="content_name" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
                 <form>
                     <div class="form-group">
@@ -163,7 +132,7 @@
             </script>
         </div> 
             
-        </div>
+        
     </div>  
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

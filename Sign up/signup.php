@@ -1,3 +1,42 @@
+<?php
+    require 'connect.php'; //connecting to database
+    if(!empty($_SESSION['id'])){ //if session has no id (no start yet)
+        header("Location: index.php"); 
+    }else{
+        
+    }
+
+    if(isset($_POST["submit"])){
+        $name = $_POST["name"];
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $department = $_POST["department"];
+        $password = $_POST["password"];
+        $confirmpassword = $_POST["confirmpassword"];
+        $duplicate = mysqli_query($db, "SELECT * FROM users WHERE username = '$username' OR email = '$email'"); //checking whether user exist or not
+        if(mysqli_num_rows($duplicate) > 0){ //if $duplicate shows results, meaning there is an existing user
+          echo
+          "<script> alert('Username or Email Has Already Taken'); </script>";
+        }
+        else{
+          if($password == $confirmpassword){
+            $query = "INSERT INTO users (fullname, username, email, department, password) VALUES('$name','$username','$email', '$department','$password')";
+            $result = mysqli_query($db, $query);
+            if($result){
+            echo
+            "<script> alert('Registration Successful'); </script>";
+            }else{
+            "<script> alert('Registration unSuccessful'); </script>";
+            }
+          }
+          else{
+            echo
+            "<script> alert('Password Does Not Match'); </script>";
+          }
+        }
+      }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,8 +56,27 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">   
         <body>
-            <div class="background">
-                
+            <div class="container">
+                <h1><center>REGISTER</center></h1>
+                <form class="" action="" method="post" autocomplete="off">
+                <label for="name">Full Name : </label>
+                    <input type="text" name="name" id = "name" required value=""> <br>
+                <label for="username">Username : </label>
+                    <input type="text" name="username" id = "username" required value=""> <br>
+                <label for="email">Email : </label>
+                    <input type="email" name="email" id = "email" required value=""> <br>
+                <label for="department">Department : </label>
+                <input type="text" name="department" id = "department" required value=""> <br>
+                <label for="password">Password : </label>
+                    <input type="password" name="password" id = "password" required value=""> <br>
+                <label for="confirmpassword">Confirm Password : </label>
+                    <input type="password" name="confirmpassword" id = "confirmpassword" required value=""> <br>
+                <button class="btn btn-info" type="submit" name="submit">Register</button>
+                </form>
+
+                <br>
+                 <a  href="index.php" class="btn btn-success" >Login</a>
+
             </div>
         </body>
     </head>
