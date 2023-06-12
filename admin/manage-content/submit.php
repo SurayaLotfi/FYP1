@@ -207,7 +207,9 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
 //    }
 // }else{
 //}
-// 
+
+
+// delete
 include "dbConfig.php";
 
 if(isset($_POST['id'])){
