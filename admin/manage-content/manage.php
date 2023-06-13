@@ -188,14 +188,37 @@
                     Swal.fire({
                         icon: 'success',
                         title: 'Success!',
-                           text: 'The record has been deleted.'
+                           text: 'The record has been inserted.'
                        })
                     </script>
                      
                <?php
                
-                }
-            }?>
+                }elseif($status === 'updatesuccess'){
+                ?>
+                
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                           text: 'The record has been updated.'
+                       })
+                    </script>
+                <?php
+
+                }elseif($status === 'deletesuccess'){
+                    ?>
+                    
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                               text: 'The record has been deleted.'
+                           })
+                        </script>
+                    <?php
+            }
+        }?>
                                              
             </div>
             

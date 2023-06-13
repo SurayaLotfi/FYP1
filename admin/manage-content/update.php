@@ -33,6 +33,7 @@ $insert = $db -> query("UPDATE manage_content set id=$id, content_name='$content
         // If database insertion is successful
         if($insert){
             $statusMsg = "The editor content has been inserted successfully.";
+            header('location: manage.php?status=updatesuccess');
         }else{
             $statusMsg = "Some problem occurred, please try again.";
         } 
@@ -70,7 +71,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_video'])) {
                                         content_format='$content_format', content_type='$content_type', content='$new_video_name' WHERE id=$id");
 
                 if($insert){
-                    echo "Update Successful";
+                    header('location: manage.php?status=updatesuccess');
                 }
                 else{
                     echo "Update Unsuccesful";
@@ -93,7 +94,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_video'])) {
             content_format='$content_format', content_type='$content_type' WHERE id=$id");
 
             if ($insert) {
-                echo "Update Successful";
+                header('location: manage.php?status=updatesuccess');
             } else {
                 echo "Update Unsuccessful";
             }
@@ -134,7 +135,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
                 content_format='$content_format', content_type='$content_type', content='$content' WHERE id=$id");
    
                if($insert){
-                   echo "Update Successful";
+                header('location: manage.php?status=updatesuccess');
                }
                else{
                    echo "Update Unsuccesful do";
@@ -147,7 +148,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
         $insert = $db -> query("UPDATE manage_content set id=$id, content_name='$content_name',
         content_format='$content_format', content_type='$content_type' WHERE id=$id");
         if ($insert) {
-            echo "Update Successful";
+            header('location: manage.php?status=updatesuccess');
         } else {
             echo "Update Unsuccessful";
         }
@@ -191,7 +192,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
                 content_format='$content_format', content_type='$content_type', content='$content' WHERE id=$id");
    
                if($insert){
-                   echo "Update Successful";
+                header('location: manage.php?status=updatesuccess');
                }
                else{
                    echo "Update Unsuccesful";
@@ -204,7 +205,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
         $insert = $db -> query("UPDATE manage_content set id=$id, content_name='$content_name',
         content_format='$content_format', content_type='$content_type' WHERE id=$id");
                 if ($insert) {
-                    echo "Update Successful";
+                    header('location: manage.php?status=updatesuccess');
                 } else {
                     echo "Update Unsuccessful";
                 }
@@ -239,6 +240,10 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
 
     <!--CKEEDITOR: RICH TEXT API-->
     <script src="/ckeditor_4.21.0_full/ckeditor/ckeditor.js"></script>
+
+           <!--Sweet Alert-->
+           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -472,6 +477,25 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
                 // unset($_SESSION['message']);
                 // }
                 ?> -->
+
+<?php 
+            if(isset($_GET['status'])){
+                $status = $_GET['status'];
+
+                if($status === 'success'){
+                    ?>
+                    <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                           text: 'Content has been uploaded.'
+                       })
+                    </script>
+                     
+               <?php
+               
+                }
+            }?>
                
                
 

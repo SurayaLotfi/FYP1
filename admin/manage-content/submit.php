@@ -27,8 +27,14 @@ if(isset($_POST['submit']) && isset($_POST['editor'])){
         
         // If database insertion is successful
         if($insert){
-            $statusMsg = "The editor content has been inserted successfully.";
+            $statusMsg = "Success";
+            header('location: create.php?status=success');
         }else{
+            echo '
+            <script type = "text/javascript">
+              alert("Unsuccessful");
+              window.location = "create.php";
+            </script>';
             $statusMsg = "Some problem occurred, please try again.";
         } 
     }else{
@@ -56,7 +62,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_video'])) {
 
     	$video_ex_lc = strtolower($video_ex);
 
-    	$allowed_exs = array("mp4", 'webm', 'avi', 'flv');
+    	$allowed_exs = array("mp4", 'webm', 'avi', 'flv', 'mov');
 
     	if (in_array($video_ex_lc, $allowed_exs)) {
     		
@@ -71,14 +77,23 @@ if (isset($_POST['submit']) && isset($_FILES['my_video'])) {
              VALUES('$content_name', '$content_format', '$content_type', '$new_video_name')");
 
             if($insert){
-                echo "Upload Successful";
+                header('location: upload.php?status=success');
             }
             else{
-                echo "Upload Unsuccesful";
+                echo '
+                <script type = "text/javascript">
+                  alert("Unsuccessful");
+                  window.location = "upload.php";
+                </script>';
             }
             //header("Location: ../manage-content/upload.php");
     	}else {
     		$em = "You can't upload files of this type";
+            echo '
+            <script type = "text/javascript">
+              alert("Wrong format");
+              window.location = "upload.php";
+            </script>';
     		//header("Location: upload.php?error=$em");
     	}
     }
@@ -121,13 +136,21 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
                 VALUES('$content_name', '$content_format', '$content_type', '$new_img_name')");
    
                if($insert){
-                   echo "Upload Successful";
+                header('location: upload.php?status=success');
                }
                else{
-                   echo "Upload Unsuccesful do";
+                echo '
+                <script type = "text/javascript">
+                  alert("Unsuccessful");
+                  window.location = "viewonboarding.php";
+                </script>';
                }
             }else{
-                echo "wrong format!";
+                echo '
+                <script type = "text/javascript">
+                  alert("Wrong format");
+                  window.location = "viewonboarding.php";
+                </script>';
             }
         }
     }else{
@@ -170,13 +193,21 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
                 VALUES('$content_name', '$content_format', '$content_type', '$new_pdf_name')");
    
                if($insert){
-                   echo "Upload Successful";
+                header('location: upload.php?status=success');
                }
                else{
-                   echo "Upload Unsuccesful";
+                echo '
+                <script type = "text/javascript">
+                  alert("Unsuccessful");
+                  window.location = "upload.php";
+                </script>';
                }
             }else{
-                echo "Wrong format";
+                echo '
+              <script type = "text/javascript">
+                alert("Wrong Format");
+                window.location = "upload.php";
+              </script>'; 
             }
         }
     }else{
@@ -220,7 +251,7 @@ if(isset($_POST['id'])){
    $sql = "DELETE FROM manage_content WHERE id=$id";
    $result = mysqli_query($db,$sql);
    if($result){
-    header('location: manage.php?status=success'); //navigate to manage.php.. where? at the status where it mentions success.
+    header('location: manage.php?status=deletesuccess'); //navigate to manage.php.. where? at the status where it mentions success.
    }else{
     header('location: manage.php?status=error');
    }

@@ -30,6 +30,8 @@ if(!empty($_SESSION["id"])){
         <!--Data Tables-->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
 
 </head>
     <body>
@@ -79,22 +81,39 @@ if(!empty($_SESSION["id"])){
             $result=mysqli_query($db, $sql);
             $row = mysqli_fetch_assoc($result);
             $title = $row['content_name'];
-
+            $content_format = $row['content_format'];
             $content = $row['content'];
            
             }
 
             ?>
         <div class="container-fluid"  style="background-color: #9299a4; padding:50px;">
+        <a href=OB.php class="btn btn-dark">Back</a>
             <div class="row" style="color: aliceblue;">
-            <h1>Welcome to Our Knowledge Base, <?php echo $username ?></h1>
-            <h3>We offer different types of Knowledge</h3>
-    
             
+            <center><h3><?php echo $title?></h3></center>
+            
+            <?php if($content_format==="Video"){ ?>
+                    <div style="display: flex; justify-content: center; align-items: center; ">
+                        <video src="../admin/onboarding/video/<?=$content?>" style="width: 60%; max-height: 100%;" controls>
+                        </video>
+                    </div>
+
+            <?php 
+                }if($content_format==="Image"){ ?>
+                <div style="display: flex; justify-content: center; align-items: center; ">
+                    <img src="../admin/onboarding/image/<?=$content?>" 
+                    style="width: 80%; max-height: 100%;" controls>      
+                </img>
+                </div>
+            <?php
+                }if($content_format === "PDF"){ ?>
             <div style="width: 100%; min-height: 1000px;">
             <center><embed src="../admin/onboarding/OBuploads/<?=$content?>" type="application/pdf" width="100%" height=1000px controls></center>
                         
             </div>
+            <?php }
+            ?>
         </div>
         </div>
     
@@ -124,18 +143,36 @@ if(!empty($_SESSION["id"])){
                     searchPlaceholder: "Search",
                 }
             })
-            // Add custom filter dropdown
-        // var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Select Format</option><option value=>All</option><option value="pdf">PDF</option><option value="html">HTML</option><option value="video">Video</option><option value="image">Image</option></select>')
-        // .css('width','150px')
-        
-        // .css('margin-left', '720px')
-        // .css('margin-top', '10px')
-          
-        // .appendTo('#dataTableid_wrapper .dataTables_filter')
-        // .on('change', function () {
-        //         var filterValue = $(this).val();
-        //         table.column(2).search(filterValue).draw();
-        //     });
+          // Add custom filter dropdown for Content Type
+          var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value="" selected disabled>Select Format</option><option value="">All</option><option value="pdf">PDF</option><option value="html">HTML</option><option value="video">Video</option><option value="image">Image</option></select>')
+              .css('width', '150px')
+              .css('margin-top','7px')
+              .css('margin-left','10px')
+              .css('margin-right','10px');
+
+
+            // Add custom filter dropdown for Location
+            var filterDropdown2 = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Department"><option value="" selected disabled>Department</option><option value="">All</option><option value="Training">Training</option><option value="Engineering">Engineering</option><option value="IT">IT</option><option value="Maintenance">Maintenance</option></select>')
+              .css('width', '150px')
+              .css('margin-top','7px')
+              .css('margin-left','10px')
+              .css('margin-right','10px');
+
+            // Insert filter dropdowns next to the search input
+            $('.dataTables_filter')
+              .addClass('d-flex align-items-center')
+              .append(filterDropdown)
+              .append(filterDropdown2);
+
+            filterDropdown.on('change', function () {
+              var filterValue = $(this).val();
+              table.column(3).search(filterValue).draw();
+            });
+
+            filterDropdown2.on('change', function () {
+              var filterValue = $(this).val();
+              table.column(2).search(filterValue).draw();
+            });
         });
     </script>
     </body>

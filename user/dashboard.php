@@ -55,8 +55,11 @@ include "connect.php";
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+
 </head>
     <body>
+
         <!--Navbar-->  
         <section id="nav-bar">
         <nav class = "navbar navbar-expand" style="background-color: #001D47;">
@@ -229,13 +232,37 @@ include "connect.php";
                                     <hr>
                                     <p><strong>Email:</strong> <?php echo $email ?></p>
                                     <hr>
+                                    <button type="button" class = "btn btn-success" data-toggle="modal" data-target="#editbutton">Edit</button>
+                                    <!--Modal for edit-->
+                                    <div class="modal fade" id="editbutton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
                                 </div>
+                                
                             </div>
+                            
                         </div>
                     </div>
 
         </div>
         </div>
+
 
      <!--Footer-->
     <footer class="footer mt-auto py-3 bg-light">

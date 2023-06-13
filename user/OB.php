@@ -71,16 +71,19 @@ if(!empty($_SESSION["id"])){
     </section> 
         <!--Body-->
         <div class="container-fluid"  style="background-color: #9299a4; padding:50px;">
+        <a href=KBhome.html class="btn btn-dark">Back</a>
             <div class="row" style="color: aliceblue;">
-            <h1>Welcome to Our Knowledge Base, <?php echo $username ?></h1>
-            <h3>We offer different types of Knowledge</h3>
+            <h1>Welcome Onboard, <?php echo $username ?>!</h1>
+            <div style="margin-bottom: 30px">
+            <h3>Here are all required documents you can refer to settle in.</h3>
+            </div>
             <table id="dataTableid" class="table  table-dark"  style="margin-top: 10px">
                 <thead>
                     <tr>
                         <th scope ="col">No</th>
                         <th scope ="col">Title</th>
                         <th scope ="col">Department</th>
-                        <th scope ="col">Content</th>
+                        <th scope ="col">Format</th>
                         <th scope ="col">Date Created</th>
                         <th scope ="col">Action</th>
                     </tr>
@@ -113,7 +116,7 @@ if(!empty($_SESSION["id"])){
                             <td><?php echo $i ?></td>
                             <td><?php echo $row['content_name'] ?></td>
                             <td><?php echo $row['department'] ?></td>
-                            <td><?php echo $truncatedContent ?></td>
+                            <td><?php echo $row['content_format'] ?></td>
                             <td><?php echo $row['date'] ?></td>
                             <td>
                             <a href='OBview.php?OBviewid=<?php echo $id?>' class='btn btn-info'>View</a></button>
@@ -161,17 +164,16 @@ if(!empty($_SESSION["id"])){
                 }
             })
             // Add custom filter dropdown
-        // var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Select Format</option><option value=>All</option><option value="pdf">PDF</option><option value="html">HTML</option><option value="video">Video</option><option value="image">Image</option></select>')
-        // .css('width','150px')
-        
-        // .css('margin-left', '720px')
-        // .css('margin-top', '10px')
+        var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Select Format</option><option value=>All</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
+        .css('width','150px')
+        .css('margin-left', '530px')
+        .css('margin-top', '10px')
           
-        // .appendTo('#dataTableid_wrapper .dataTables_filter')
-        // .on('change', function () {
-        //         var filterValue = $(this).val();
-        //         table.column(2).search(filterValue).draw();
-        //     });
+        .appendTo('#dataTableid_wrapper .dataTables_filter')
+        .on('change', function () {
+                var filterValue = $(this).val();
+                table.column(3).search(filterValue).draw();
+            });
         });
     </script>
     </body>

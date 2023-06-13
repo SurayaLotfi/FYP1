@@ -58,10 +58,10 @@
             <!-- We'll fill this with dummy content -->
             <div class="row">
                 <br>
-                <h1>Testing</h1>
+                
             </div>
             <div class="row">
-                <h1>Testing</h1>
+                <h1>Welcome Back, Admin</h1>
             </div>
         </div>
         </div>  

@@ -11,12 +11,7 @@ if(isset($_POST['delete'])){
    $sql = "DELETE FROM onboarding WHERE id=$id";
    $result = mysqli_query($db,$sql);
    if($result){
-    ?>
-            <script type = "text/javascript">
-            alert("Delete Successful");
-            window.location = "viewonboarding.php";
-            </script>
-    <?php
+        header('location: viewonboarding.php?status=deletesuccess');
    }else{
     ?>
     <script type = "text/javascript">

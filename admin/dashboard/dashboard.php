@@ -117,7 +117,7 @@
             <!-- We'll fill this with dummy content -->
             <div class="row" style="margin-top: 20px">
             <div style="margin-left: 12px">
-                <h3>Dashboard</h3>
+               
             </div>
             </div>
                 <div class="row">
@@ -191,12 +191,15 @@
                         </div> 
                     </div>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <div style="border: 1px solid; border-radius: 10px; height: 430px; padding: 10px">
-                            <h3>Employees</h3>
-                            <table id="dataTableid" class="table" style="margin-top: 10px">
+                            <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 460px;">
+                                <div class="card-header">Employees</div>
+                                    <div class="card-body">
+                      
+                            <table id="dataTableid" class="table table-bordered" style="margin-top: 10px">
                                 <thead class= "thead-dark">
                                     <tr>
                                         <th scope ="col">No</th>
@@ -208,7 +211,7 @@
                                     </tr>
                                 </thead>
                             <?php
-                                $query = "SELECT * FROM users";
+                                $query = "SELECT * FROM users WHERE position = 'User'";
                                 $result = mysqli_query($db, $query);
                                 $i = 1;
                                 while($row = mysqli_fetch_assoc($result)){ //loop through the rows in the table fetched by result
@@ -236,12 +239,17 @@
                                 }
                             ?>
                             </table>
+                            </div>
                         </div>
-                    </div>
+                        </div>
+                    
                     <div class="col">
-                        <div style="border: 1px solid; border-radius: 10px; height: 430px; padding: 10px"  id="detailSection">
-                        <h3>Details</h3>
-                        </div>
+                        <!-- <div style="border: 1px solid; border-radius: 10px; height: 500px; padding: 10px"  id="detailSection"> -->
+                        <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 460px;" >
+                                <div class="card-header">Details</div>
+                                    <div class="card-body" id="detailSection">
+                                    Click 'View Details' for output
+                                    </div>
                         
                     </div>
                 </div>
@@ -276,7 +284,7 @@
             $('.view-details-btn').on('click', function() {
                 var details = $(this).data('details');
                 // Update the content in the leaderboardSection div
-                $('#detailSection').html('<h3>Details</h3>' + details);
+                $('#detailSection').html(details);
             });
         });
     </script>
@@ -291,8 +299,8 @@
            var table = $('#dataTableid').DataTable({
                 "pagingType": "full_numbers",
                 "lengthMenu": [
-                    [4,8,15,50, -1],
-                    [4,10,15,50, "All"]
+                    [3,8,15,50, -1],
+                    [3,10,15,50, "All"]
 
                 ],
                 responsive:true,

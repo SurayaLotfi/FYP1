@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home</title>
+    <title>Onboarding</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -25,6 +26,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -39,10 +43,11 @@
         </button>
       </div>
      
+    <div id="modal-body-pdf" style="display: none;">
       <div class="modal-body">
       <form action="fileprocessupdate.php" method="post" enctype="multipart/form-data" >
-        <input type = "text" name="id" id="id">
-      <div class="row" style="padding: 30px">
+        <input type = "text" name="pdf_id" id="pdf_id">
+          <div class="row" style="padding: 30px">
             <div class="card">
                 <h5 class="card-header info-color white-text text-center py-4">
                 <strong>Upload File Form</strong>
@@ -55,13 +60,13 @@
                             <!--Document Title-->
                             <div class="form-group">
                                 <label for="Title">Title</label>
-                                <input type="text" class="form-control" id="content_name" name="content_name" placeholder="Enter Title">
+                                <input type="text" class="form-control" id="pdf_content_name" name="content_name" placeholder="Enter Title">
                             </div>
 
                             <!--Which Department-->
                             <div class="form-group">
                                     <label for="department-select"><h6>Select Department</h6></label>
-                                    <select class="form-control" id="department" name="department">
+                                    <select class="form-control" id="pdf_department" name="department">
                                         <option value="Training">Training</option>
                                         <option value="Engineering">Engineering</option>
                                         <option value="Maintenance">Maintenance</option>
@@ -77,15 +82,118 @@
                     </div>
                 </div>
                 </div>
-                </div>
+          </div>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="update" type="submit">EDIT</button>
+        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="updatepdf" type="submit">EDIT</button>
 
         <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .pdf only</i></font></footer>
         </form>
       </div>
+    </div>
+    <!--For video-->
+    <div id="modal-body-video" style="display: none;">
+      <div class="modal-body">
+      <form action="fileprocessupdate.php" method="post" enctype="multipart/form-data" >
+        <input type = "text" name="video_id" id="video_id">
+          <div class="row" style="padding: 30px">
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Upload Video Form</strong>
+                </h5>
+                <div class="card-body px-lg-5 pt-0">
+
+                    <div class="container">
+                    <div class="row" style="padding: 10px"><br><br>
+                        
+                            <!--Document Title-->
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="video_content_name" name="content_name" placeholder="Enter Title">
+                            </div>
+
+                            <!--Which Department-->
+                            <div class="form-group">
+                                    <label for="department-select"><h6>Select Department</h6></label>
+                                    <select class="form-control" id="video_department" name="department">
+                                        <option value="Training">Training</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                        <option value="IT">IT</option>
+                                    </select>
+                            </div>
+
+                        <label for="subject" class="">Edit Video</label>
+                        <input type="file" id="content" name="my_video"> <br>
+
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+          </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="updatevideo" type="submit">EDIT</button>
+
+        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .pdf only</i></font></footer>
+        </form>
+      </div>
+    </div>
+    <div id="modal-body-image" style="display: none;">
+      <div class="modal-body">
+      <form action="fileprocessupdate.php" method="post" enctype="multipart/form-data" >
+        <input type = "text" name="image_id" id="image_id">
+          <div class="row" style="padding: 30px">
+            <div class="card">
+                <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Upload Image Form</strong>
+                </h5>
+                <div class="card-body px-lg-5 pt-0">
+
+                    <div class="container">
+                    <div class="row" style="padding: 10px"><br><br>
+                        
+                            <!--Document Title-->
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" class="form-control" id="image_content_name" name="content_name" placeholder="Enter Title">
+                            </div>
+
+                            <!--Which Department-->
+                            <div class="form-group">
+                                    <label for="department-select"><h6>Select Department</h6></label>
+                                    <select class="form-control" id="image_department" name="department">
+                                        <option value="Training">Training</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                        <option value="IT">IT</option>
+                                    </select>
+                            </div>
+
+                        <label for="subject" class="">Edit Image</label>
+                        <input type="file" id="content" name="my_image"> <br>
+
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+          </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="updateimage" type="submit">EDIT</button>
+
+        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i>png jpg jpeg only</i></font></footer>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 </div>
@@ -114,6 +222,8 @@
     </div>
   </div>
 </div>
+
+
     <div class="wrapper">
 
         <!-- Sidebar -->
@@ -168,9 +278,11 @@
             <table id="dataTableid" class="table" style="margin-top: 10px">
                 <thead>
                     <tr>
+                        
                         <th scope ="col">ID</th>
                         <th scope ="col">Title</th>
                         <th scope ="col">Department</th>
+                        <th scope ="col">Format</th>
                         <th scope ="col">Content</th>
                         <th scope ="col">Date Created</th>
                         <th scope ="col">Action</th>
@@ -204,12 +316,14 @@
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['content_name'] ?></td>
                             <td><?php echo $row['department'] ?></td>
+                            <td><?php echo $row['content_format'] ?></td>
                             <td><?php echo $row['content'] ?></td>
                             <td><?php echo $row['date'] ?></td>
                             <td>
                             <!-- <a href='view.php?viewid="<?php echo $id?>"' class='btn btn-info'>View</a></button> -->
-                            <a href='#' class='btn btn-info'>View</a></button>
+                            <!-- <a href='#' class='btn btn-info'>View</a></button> -->
                             <!-- <a href='#' class='btn btn-info'>Delete</a></button> -->
+                            <a href='view.php?viewid=<?php echo $id ?>' class='btn btn-success'>View</a></button>
                             <button type="button" class="btn btn-info deletebtn">Delete</button>
                             <button type="button" class="btn btn-primary editbtn">Edit</button>
                             </td>
@@ -230,6 +344,43 @@
             </div>
         
     </div>  
+    <!--Sweet Alert Message-->
+    <?php 
+      if(isset($_GET['status'])){
+          $status = $_GET['status'];
+
+          if($status === 'success'){
+              ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'File Uploaded.'
+              })
+              </script>      
+      <?php
+          }elseif($status === 'deletesuccess'){
+            ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'File Deleted.'
+              })
+              </script>      
+      <?php
+          }elseif($status === 'updatesuccess'){
+            ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'File Updated.'
+              })
+              </script>      
+      <?php
+          }
+      }?>
     <!--Footer-->
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
@@ -246,6 +397,27 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
    
+    <script>
+        $(document).ready(function(){
+           $('.viewbtn').on('click', function(){
+
+                $('#viewmodal').modal('show');
+                //to display current value 
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function () {
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#view_id').val(data[0]);
+
+           });
+        });
+
+    </script>
+    
     <script>
         $(document).ready(function(){
            $('.deletebtn').on('click', function(){
@@ -281,10 +453,43 @@
 
                 console.log(data);
 
-                $('#id').val(data[0]);
-                $('#content_name').val(data[1]);
-                $('#department').val(data[2]);
-                $('#content').val(data[3]);
+                $('#pdf_id').val(data[0]);
+                $('#video_id').val(data[0]);
+                $('#image_id').val(data[0]);
+                $('#pdf_content_name').val(data[1]);
+                $('#video_content_name').val(data[1]);
+                $('#image_content_name').val(data[1]);
+                $('#pdf_department').val(data[2]);
+                $('#video_department').val(data[2]);
+                $('#image_department').val(data[2]);
+                $('#content_format').val(data[3]);
+                $('#pdf_content').val(data[4]);
+                $('#video_content').val(data[4]);
+                $('#image_content').val(data[4]);
+
+                var contentFormat = data[3];
+
+                if (contentFormat === 'PDF') {
+                  // Update modal body for PDF format
+                  $('#modal-body-pdf').show();
+                  $('#modal-body-video').hide();
+                  $('#modal-body-image').hide()
+                } else if (contentFormat === 'Video') {
+                  // Update modal body for Video format
+                  $('#modal-body-pdf').hide();
+                  $('#modal-body-video').show();
+                  $('#modal-body-image').hide()
+                } else if (contentFormat === 'Image') {
+                  // Update modal body for Video format
+                  $('#modal-body-pdf').hide();
+                  $('#modal-body-video').hide();
+                  $('#modal-body-image').show()
+                }else {
+                  // Handle other formats or show a default modal body
+                  $('#modal-body-pdf').hide();
+                  $('#modal-body-video').hide();
+                  $('#modal-body-image').hide()
+                }
                
 
            });
@@ -328,19 +533,45 @@
                 language: {
                     search: "_INPUT_",
                     searchPlaceholder: "Search",
-                }
+                },
+                columnDefs: [
+                  {
+                    targets: [4],
+                    visible: false,
+                    searchable: false
+                  }
+                ]
             })
-            // Add custom filter dropdown
-        var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Department</option><option value=>All</option><option value="Training">Training</option><option value="Engineering">Engineering</option><option value="IT">IT</option><option value="Maintenance">Maintenance</option></select>')
-        .css('width','150px')
-        
-        .css('margin-left', '390px')
-        .css('margin-top', '10px')
-          
-        .appendTo('#dataTableid_wrapper .dataTables_filter')
-        .on('change', function () {
-                var filterValue = $(this).val();
-                table.column(2).search(filterValue).draw();
+
+          // Add custom filter dropdown for Content Type
+            var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value="" selected disabled>Select Format</option><option value="">All</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
+              .css('width', '150px')
+              .css('margin-top','7px')
+              .css('margin-left','10px')
+              .css('margin-right','10px');
+
+
+            // Add custom filter dropdown for Department
+            var filterDropdown2 = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Department"><option value="" selected disabled>Department</option><option value="">All</option><option value="Training">Training</option><option value="Engineering">Engineering</option><option value="IT">IT</option><option value="Maintenance">Maintenance</option></select>')
+              .css('width', '150px')
+              .css('margin-top','7px')
+              .css('margin-left','10px')
+              .css('margin-right','10px');
+
+            // Insert filter dropdowns next to the search input
+            $('.dataTables_filter')
+              .addClass('d-flex align-items-center')
+              .append(filterDropdown)
+              .append(filterDropdown2);
+
+            filterDropdown.on('change', function () {
+              var filterValue = $(this).val();
+              table.column(3).search(filterValue).draw();
+            });
+
+            filterDropdown2.on('change', function () {
+              var filterValue = $(this).val();
+              table.column(2).search(filterValue).draw();
             });
         });
     </script>

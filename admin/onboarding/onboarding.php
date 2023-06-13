@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home</title>
+    <title>Onboarding</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -19,6 +19,9 @@
 
     <!--CKEEDITOR: RICH TEXT API-->
     <script src="/ckeditor_4.21.0_full/ckeditor/ckeditor.js"></script>
+
+      <!--Sweet Alert-->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -74,44 +77,146 @@
             </div>
             
             <div class="container">
-            <div class="card">
-                <h5 class="card-header info-color white-text text-center py-4">
-                <strong>Upload File Form</strong>
-                </h5>
-                <div class="card-body  px-lg-5 pt-0">
-                    <div class="container" style="display: flex; justify-content: center; align-items: center">
-                    <div class="row" style="padding: 10px"><br><br>
-                        <form action="fileprocess.php" method="post" enctype="multipart/form-data" >
-                            <!--Document Title-->
-                            <div class="form-group">
-                                <label for="Title">Title</label>
-                                <input type="text" class="form-control" id="Title" name="title" placeholder="Enter Title">
-                            </div>
+                <div class="row">
+                    <div class="col">
+                        <!--PDF-->
+                    <div class="card">
+                        <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Upload File Form</strong>
+                        </h5>
+                        <div class="card-body  px-lg-5 pt-0">
+                            <div class="container" style="display: flex; justify-content: center; align-items: center">
+                            <div class="row" style="padding: 10px"><br><br>
+                                <form action="fileprocess.php" method="post" enctype="multipart/form-data" >
+                                    <!--Document Title-->
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input type="text" class="form-control" id="Title" name="title" placeholder="Enter Title">
+                                    </div>
 
-                            <!--Which Department-->
-                            <div class="form-group">
-                                    <label for="department-select"><h6>Select Department</h6></label>
-                                    <select class="form-control" id="department-select" name="department">
-                                        <option value="Training">Training</option>
-                                        <option value="Engineering">Engineering</option>
-                                        <option value="Maintenance">Maintenance</option>
-                                        <option value="IT">IT</option>
-                                    </select>
-                            </div>
+                                    <!--Which Department-->
+                                    <div class="form-group">
+                                            <label for="department-select"><h6>Select Department</h6></label>
+                                            <select class="form-control" id="department-select" name="department">
+                                                <option value="Training">Training</option>
+                                                <option value="Engineering">Engineering</option>
+                                                <option value="Maintenance">Maintenance</option>
+                                                <option value="IT">IT</option>
+                                            </select>
+                                    </div>
 
-                        <label for="subject" class="">Upload File</label>
-                        <input type="file" name="my_pdf"> <br>
-                        <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="save" type="submit">UPLOAD</button>
-                        <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .pdf only</i></font></footer>
-                        </form>
+                                <label for="subject" class="">Upload File</label>
+                                <input type="file" name="my_pdf"> <br>
+                                <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="save" type="submit">UPLOAD</button>
+                                <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .pdf only</i></font></footer>
+                                </form>
+
+                                
+                            </div>
+                            </div>
+                        </div>
                     </div>
                     </div>
-                </div>
-                </div>
-                </div>
+                    <div class="col">
+                        <div class="card">
+                            <!--Video-->
+                        <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Upload Video Form</strong>
+                        </h5>
+                        <div class="card-body  px-lg-5 pt-0">
+                            <div class="container" style="display: flex; justify-content: center; align-items: center">
+                            <div class="row" style="padding: 10px"><br><br>
+                                <form action="fileprocess.php" method="post" enctype="multipart/form-data" >
+                                    <!--Document Title-->
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input type="text" class="form-control" id="Title" name="title" placeholder="Enter Title">
+                                    </div>
 
+                                    <!--Which Department-->
+                                    <div class="form-group">
+                                            <label for="department-select"><h6>Select Department</h6></label>
+                                            <select class="form-control" id="department-select" name="department">
+                                                <option value="Training">Training</option>
+                                                <option value="Engineering">Engineering</option>
+                                                <option value="Maintenance">Maintenance</option>
+                                                <option value="IT">IT</option>
+                                            </select>
+                                    </div>
+
+                                <label for="subject" class="">Upload Video</label>
+                                <input type="file" name="my_video"> <br>
+                                <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="savevideo" type="submit">UPLOAD</button>
+                                <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .mp4, .webm, .avi, .flv, .mov only</i></font></footer>
+                                </form>
+
+                                
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!--Image-->
+                        <div class="card">
+                        <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Upload Image Form</strong>
+                        </h5>
+                        <div class="card-body  px-lg-5 pt-0">
+                            <div class="container" style="display: flex; justify-content: center; align-items: center">
+                            <div class="row" style="padding: 10px"><br><br>
+                                <form action="fileprocess.php" method="post" enctype="multipart/form-data" >
+                                    <!--Document Title-->
+                                    <div class="form-group">
+                                        <label for="Title">Title</label>
+                                        <input type="text" class="form-control" id="Title" name="title" placeholder="Enter Title">
+                                    </div>
+
+                                    <!--Which Department-->
+                                    <div class="form-group">
+                                            <label for="department-select"><h6>Select Department</h6></label>
+                                            <select class="form-control" id="department-select" name="department">
+                                                <option value="Training">Training</option>
+                                                <option value="Engineering">Engineering</option>
+                                                <option value="Maintenance">Maintenance</option>
+                                                <option value="IT">IT</option>
+                                            </select>
+                                    </div>
+
+                                <label for="subject" class="">Upload Image</label>
+                                <input type="file" name="my_image"> <br>
+                                <button  type="submit" class="btn btn-info btn-rounded btn-block my-4 waves-effect z-depth-0"  name="saveimage" type="submit">UPLOAD</button>
+                                <footer style="font-size: 12px"><b>File Type:</b><font color="red"><i> .jpg, .jpeg, .png only</i></font></footer>
+                                </form>
+
+                                
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
         </div>
-       
+       <!--Sweet Alert Message-->
+       <?php 
+                            if(isset($_GET['status'])){
+                                $status = $_GET['status'];
+
+                                if($status === 'success'){
+                                    ?>
+                                    <script>
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success!',
+                                        text: 'File Uploaded.'
+                                    })
+                                    </script>
+                                    
+                            <?php
+                            
+                                }
+                            }?>
    
     </div>  
 

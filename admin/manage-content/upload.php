@@ -26,6 +26,9 @@
     <!--CKEEDITOR: RICH TEXT API-->
     <script src="../ckeditor_4.21.0_full/ckeditor/ckeditor.js"></script>
 
+       <!--Sweet Alert-->
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -322,6 +325,25 @@
 
             <!-- </div>
             </div> -->
+                 
+            <?php 
+            if(isset($_GET['status'])){
+                $status = $_GET['status'];
+
+                if($status === 'success'){
+                    ?>
+                    <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                           text: 'Content has been uploaded.'
+                       })
+                    </script>
+                     
+               <?php
+               
+                }
+            }?>
         </div>
         </div>  
    
