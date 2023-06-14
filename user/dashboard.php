@@ -33,7 +33,7 @@ include "connect.php";
         $result = mysqli_query($db, $query);
         $total_ongoing = mysqli_num_rows($result);
 
-        //getting leaderboard
+
 
 
     }else{
@@ -50,11 +50,22 @@ include "connect.php";
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <title>KMS4MAE Homepage</title>
+
+        <!-- Bootstrap CSS CDN -->
+        <!--TAKYAH, DIA JADIKAN DESIGN LARI-->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
+        
+        <!--css-->
         <link rel="stylesheet" href="styles.css">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+        <!--Sweet Alert-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </head>
@@ -80,7 +91,7 @@ include "connect.php";
             </ul>
                 <ul class="navbar-nav nav-underline" >
                     <li class = "nav-item">
-                        <a href="user_home.html" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page"><b>Home</a></b>
+                        <a href="user_home.php" class="nav-link" aria-current="page"><b>Home</a></b>
                     </li>
                     <li class = "nav-item">
                         <a href="KBhome.html" class="nav-link">Knowledge Base</a>
@@ -89,7 +100,7 @@ include "connect.php";
                         <a href="classes.html" class="nav-link">Classes</a>
                     </li>
                     <li class = "nav-item">
-                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="dashboard.php" class="nav-link active" style="color:rgb(138, 239, 255)">Dashboard</a>
                     </li>
 
                 </ul>
@@ -233,27 +244,50 @@ include "connect.php";
                                     <p><strong>Email:</strong> <?php echo $email ?></p>
                                     <hr>
                                     <button type="button" class = "btn btn-success" data-toggle="modal" data-target="#editbutton">Edit</button>
-                                    <!--Modal for edit-->
-                                    <div class="modal fade" id="editbutton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                </div>
+                                   <!--Modal for edit-->
+                                        <div class="modal fade" id="editbutton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel" style="color: black">Update Profile</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
+                                            <form action="updateprofile.php" method="post">
                                             <div class="modal-body">
-                                                ...
+                                                <div class="form-group">
+                                                    <label for="Username" style="color: black">Full Name</label>
+                                                    <input type="text" name="fullname" class="form-control" id="exampleFormControlInput1" value="<?php echo $fullname?>">
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label for="Username" style="color: black">Username</label>
+                                                    <input type="text" name="username" class="form-control" id="exampleFormControlInput1" value=<?php echo $username?>>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label for="Username" style="color: black">Department</label>
+                                                    <input type="text" class="form-control" id="exampleFormControlInput1" value=<?php echo $department?> disabled>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <label for="Username" style="color: black">Email</label>
+                                                    <input type="text" name="email" class="form-control" id="exampleFormControlInput1" value=<?php echo $email?>>
+                                                </div>
+                                                <br>
+
+                                               
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" name="editprofile" class="btn btn-primary">Save changes</button>
+                                                </form>
                                             </div>
                                             </div>
                                         </div>
                                         </div>
-                                </div>
                                 
                             </div>
                             
@@ -263,14 +297,65 @@ include "connect.php";
         </div>
         </div>
 
+    <!--Sweet Alert Message-->
+    <?php 
+      if(isset($_GET['status'])){
+          $status = $_GET['status'];
+
+          if($status === 'success'){
+              ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'File Uploaded.'
+              })
+              </script>      
+      <?php
+          }elseif($status === 'deletesuccess'){
+            ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'File Deleted.'
+              })
+              </script>      
+      <?php
+          }elseif($status === 'updatesuccess'){
+            ?>
+              <script>
+              Swal.fire({
+                  icon: 'success',
+                  title: 'Success!',
+                  text: 'Profile Updated.'
+              })
+              </script>      
+      <?php
+          }
+      }?>
+
 
      <!--Footer-->
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
           <center><span class="text-muted">2022 - Made for WIA3002 Academic Project | by Wan Suraya Binti Wan Mohd Lotfi u2005345</span></center>
         </div>
-      </footer>
+    </footer>
 
+    <!--Javascript-->
+
+    <!--Modal-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     
     </body>
 </html>

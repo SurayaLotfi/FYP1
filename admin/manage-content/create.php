@@ -36,22 +36,23 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Welcome, Admin</h3>
+            <div class="d-flex justify-content-center">
+                <h3>Admin</h3>
+            </div>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Admin</p>
                 <li>
                     <a href="/admin/home.php">Home</a>
                 </li>
                 <li class="active">
-                    <a href="/admin/manage.php">Manage Content</a>
+                    <a href="/admin/manage-content/manage.php">Manage Content</a>
                 </li>
                 <li>
-                    <a href="/admin/kb.php">Onboarding</a>
+                    <a href="/admin/onboarding/onboarding.php">Onboarding</a>
                 </li>
                 <li>
-                    <a href="/admin/class.php">Dashboard</a>
+                    <a href="/admin/dashboard/dashboard.php">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Logout</a>

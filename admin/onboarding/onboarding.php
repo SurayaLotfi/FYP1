@@ -31,11 +31,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Welcome, Admin</h3>
+            <div class="d-flex justify-content-center">
+                <h3>Admin</h3>
+            </div>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li>
                     <a href="/admin/home.php">Home</a>
                 </li>
@@ -69,6 +70,9 @@
                 <div class="buttons">
                     <a href="onboarding.php">
                     <button type="button" class="btn btn-info active">Upload</button>
+                    </a>
+                    <a href="create.php">
+                    <button type="button" class="btn btn-info">Create</button>
                     </a>
                     <a href="viewonboarding.php">
                     <button type="button" class="btn btn-info">View Uploaded</button>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if(!empty($_SESSION["id"])){
+    $id = $_SESSION["id"];
+    $fullname = $_SESSION["fullname"];
+    $username = $_SESSION["username"];
+    $department = $_SESSION["department"];
+    $email = $_SESSION["email"];
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +46,7 @@
             </ul>
                 <ul class="navbar-nav nav-underline" >
                     <li class = "nav-item">
-                        <a href="user_home.html" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page"><b>Home</a></b>
+                        <a href="user_home.php" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page"><b>Home</a></b>
                     </li>
                     <li class = "nav-item">
                         <a href="KBhome.html" class="nav-link">Knowledge Base</a>
@@ -58,7 +69,7 @@
 
                 <div class="col" style="display: flex; align-items: center;">
                     <div style="margin: 50px; margin-left:200px; ">
-                        <h1>Welcome, Suraya!</h1>
+                        <h1>Welcome, <?php echo $fullname?>!</h1>
                         <div style="margin: 0px; margin-left: 3px;">
                             <h4>Malaysia Airline's Knowledge Management System ensures you don't get lost.</h4>
                             <a href="#services">
@@ -68,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <img src="images/main-icon.avif" alt="main-icon" style="padding-left: 50px;">
+                    <img src="images/Malaysia-Airlines-Logo.png" alt="main-icon" style="padding-left: 80px; margin-top: -25px; width: 80%;">
                 </div>
             </div>
         </div>
@@ -84,11 +95,11 @@
                 <div class="col">
                     <div class="card-text-above">Access to our knowledge base! </div>
                         <div class="card" style="margin: 20px">
-                            <img src="images/knowledge-base-icon.jpg" class="card-img-top" alt="...">
+                            <img src="images/jaredd-craig-HH4WBGNyltc-unsplash.jpg" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
                         
                             <div class="card-body">
                             <h5 class="card-title">Knowledge Base</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">We have stored all type of knowledge within the organization for you to absorb yourself. Gain knowledge and become a better you.</p>
                             <a href="KBhome.html" class="btn btn-primary">Go to Knowledge Base</a>
                             </div>
                         </div>
@@ -96,11 +107,11 @@
                 <div class="col">
                     <div class="card-text-above">Classes </div>
                     <div class="card" style="margin: 20px">
-                        <img src="images/engineer.jpg" class="card-img-top" alt="...">
+                        <img src="images/training.png" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
                     
                         <div class="card-body">
                         <h5 class="card-title">Let's get into training</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Let's apply the knowledge and evaluate yourself to see how well do you understand your resources.</p>
                         <a href="classes.html" class="btn btn-primary">Go to classes</a>
                         </div>
                     </div>
@@ -108,11 +119,11 @@
                 <div class="col">
                     <div class="card-text-above">Dashboard</div>
                     <div class="card" style="margin: 20px">
-                        <img src="images/dashboard-icon.avif" class="card-img-top" alt="...">
+                        <img src="images/view-dashboard.jpg" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
                     
                         <div class="card-body">
                         <h5 class="card-title">See your Dashboard</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text">Check your progress and performance throughout this website, see how well you are doing.</p>
                         <a href="dashboard.php" class="btn btn-primary">Go to Dashboard</a>
                         </div>
                     </div>

@@ -2,6 +2,42 @@
 // connect to the database
 require_once "../manage-content/dbConfig.php";
 
+//for content editor
+$editorContent = $statusMsg = '';
+
+// If the form is submitted
+if(isset($_POST['submiteditor']) && isset($_POST['editor'])){
+    // Get editor content
+
+    $editorContent = $_POST['editor'];
+    $content_format = "HTML";
+    $title = $_POST['title'];
+    $department = $_POST['department'];
+
+    
+    // Check whether the editor content is empty
+    if(!empty($editorContent)){
+        // Insert editor content in the database
+        $sql = "INSERT INTO onboarding (department, content_name, content, content_format) VALUES ('$department', '$title', '$editorContent', '$content_format')";
+        $insert = mysqli_query($db, $sql);
+        // If database insertion is successful
+        if($insert){
+            $statusMsg = "Success";
+            header('location: create.php?status=success');
+        }else{
+            echo '
+            <script type = "text/javascript">
+              alert("Unsuccessful");
+              window.location = "create.php";
+            </script>';
+            $statusMsg = "Some problem occurred, please try again.";
+        } 
+    }else{
+        $statusMsg = 'Please add content in the editor.';
+    }
+}else{
+    
+}
 //for video
 //video upload
 if (isset($_POST['savevideo']) && isset($_FILES['my_video'])) {

@@ -2,6 +2,43 @@
 // connect to the database
 require_once "../manage-content/dbConfig.php";
 
+//for content editor
+$editorContent = $statusMsg = '';
+
+// If the form is submitted
+if(isset($_POST['updateeditor'])){
+    // Get editor content
+
+    $editorContent = $_POST['editor'];
+    $content_format = "HTML";
+    $content_name = $_POST['title'];
+    $department = $_POST['department'];
+    $id = $_POST['id'];
+    
+    // Check whether the editor content is empty
+    if(!empty($editorContent)){
+        // Insert editor content in the database
+        $sql = "UPDATE onboarding set department = '$department', content_name='$content_name', content='$editorContent, WHERE id=$id";
+        $insert = mysqli_query($db, $sql);
+        // If database insertion is successful
+        if($insert){
+            $statusMsg = "Success";
+            header('location: viewonboarding.php?status=updatesuccess');
+        }else{
+            echo '
+            <script type = "text/javascript">
+              alert("Unsuccessful");
+              window.location = "viewonboarding.php";
+            </script>';
+            $statusMsg = "Some problem occurred, please try again.";
+        } 
+    }else{
+        $statusMsg = 'Please add content in the editor.';
+    }
+}else{
+    
+}
+
 //for image
 if (isset($_POST['updateimage'])) {
 

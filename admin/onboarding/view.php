@@ -86,6 +86,9 @@
                 </div>
                 
                 <?php
+                }elseif($content_format=="HTML"){ 
+                        echo $content;
+                    
                     }else{
 
                 }   

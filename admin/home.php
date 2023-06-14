@@ -28,11 +28,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Welcome, Admin</h3>
+            <div class="d-flex justify-content-center">
+                <h3>Admin</h3>
+            </div>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li class="active">
                     <a href="home.php">Home</a>
                 </li>
@@ -54,15 +55,57 @@
     
         <!-- Home -->
        
-            <div class="container">
+        <div class="container-fluid"  style="background-color: #001D47; padding:50px; color: white;">
             <!-- We'll fill this with dummy content -->
-            <div class="row">
-                <br>
-                
-            </div>
-            <div class="row">
+            
                 <h1>Welcome Back, Admin</h1>
+              
+        
+            <div class="text" style="display: flex; justify-content: center; margin: 10px; color: white;">
+                <h1>Explore What We Have For You</h1>
             </div>
+            <div class="container" style="padding: 50;">
+            <div class="row" style="margin: 50; margin-top: 20px">
+                <div class="col">
+                    <div class="card-text-above" style="text-align: center;">Manage Content </div>
+                        <div class="card" style="margin: 20px">
+                            <img src="images/manage_content.jpg" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
+                        
+                            <div class="card-body">
+                            <h5 class="card-title"  style="color:black">Manage Content</h5>
+                            <p class="card-text">Create or Upload knowledge for your employees.</p>
+                            <a href="./manage-content/manage.php" class="btn btn-primary">Go to Manage Content</a>
+                            </div>
+                        </div>
+                </div>
+                <div class="col">
+                    <div class="card-text-above" style="text-align: center;">Onboarding</div>
+                    <div class="card" style="margin: 20px">
+                        <img src="images/onboarding.jpg" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
+                    
+                        <div class="card-body">
+                        <h5 class="card-title" style="color:black">Welcome new trainees</h5>
+                        <p class="card-text">Manage onboarding knowledge for new employees.</p>
+                        <a href="./onboarding/onboarding.php" class="btn btn-primary">Go to Onboarding</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-text-above" style="text-align: center;">Dashboard</div>
+                    <div class="card" style="margin: 20px">
+                        <img src="images/dashboard3.jpg" class="card-img-top" alt="..." style="width: 100%; height: 15vw; object-fit: cover;">
+                    
+                        <div class="card-body">
+                        <h5 class="card-title" style="color:black">See Dashboard</h5>
+                        <p class="card-text">Have an overview on all the knowledge within the system.</p>
+                        <a href="./dashboard/dashboard.php" class="btn btn-primary">Go to Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         
         </div>
         </div>  
    

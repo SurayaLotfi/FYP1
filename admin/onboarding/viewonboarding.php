@@ -194,6 +194,8 @@
         </form>
       </div>
     </div>
+
+
     </div>
   </div>
 </div>
@@ -229,11 +231,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Welcome, Admin</h3>
+            <div class="d-flex justify-content-center">
+                <h3>Admin</h3>
+            </div>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li>
                     <a href="/admin/home.php">Home</a>
                 </li>
@@ -267,6 +270,9 @@
                 <div class="buttons">
                     <a href="onboarding.php">
                     <button type="button" class="btn btn-info ">Upload</button>
+                    </a>
+                    <a href="create.php">
+                    <button type="button" class="btn btn-info">Create</button>
                     </a>
                     <a href="viewonboarding.php">
                     <button type="button" class="btn btn-info active">View Uploaded</button>
@@ -309,6 +315,7 @@
                         $content_name=$row['content_name'];
                         $department=$row['department'];
                         $date_created=$row['date'];
+                        $content_format=$row['content_format'];
                         
                     ?> 
                             
@@ -325,7 +332,11 @@
                             <!-- <a href='#' class='btn btn-info'>Delete</a></button> -->
                             <a href='view.php?viewid=<?php echo $id ?>' class='btn btn-success'>View</a></button>
                             <button type="button" class="btn btn-info deletebtn">Delete</button>
-                            <button type="button" class="btn btn-primary editbtn">Edit</button>
+                            <?php if($content_format == 'HTML'){?>
+                            <a href='updateEditor.php?editid=<?php echo $id ?>' class='btn btn-primary'>Edit</a></button>
+                            <?php }else{?>
+                              <button type="button" class="btn btn-primary editbtn">Edit</button>
+                            <?php } ?>
                             </td>
                             
                         </tr>
@@ -440,6 +451,10 @@
     </script>
 
     <script>
+        CKEDITOR.replace('editor');
+    </script>
+
+    <script>
         $(document).ready(function(){
            $('.editbtn').on('click', function(){
 
@@ -456,16 +471,20 @@
                 $('#pdf_id').val(data[0]);
                 $('#video_id').val(data[0]);
                 $('#image_id').val(data[0]);
+                $('#html_id').val(data[0]);
                 $('#pdf_content_name').val(data[1]);
                 $('#video_content_name').val(data[1]);
                 $('#image_content_name').val(data[1]);
+                $('#html_content_name').val(data[1]);
                 $('#pdf_department').val(data[2]);
                 $('#video_department').val(data[2]);
                 $('#image_department').val(data[2]);
+                $('#html_department').val(data[2]);
                 $('#content_format').val(data[3]);
                 $('#pdf_content').val(data[4]);
                 $('#video_content').val(data[4]);
                 $('#image_content').val(data[4]);
+                $('#editor').val(data[4]);
 
                 var contentFormat = data[3];
 
@@ -473,17 +492,26 @@
                   // Update modal body for PDF format
                   $('#modal-body-pdf').show();
                   $('#modal-body-video').hide();
-                  $('#modal-body-image').hide()
+                  $('#modal-body-image').hide();
+                  $('#modal-body-html').hide()
                 } else if (contentFormat === 'Video') {
                   // Update modal body for Video format
                   $('#modal-body-pdf').hide();
                   $('#modal-body-video').show();
-                  $('#modal-body-image').hide()
+                  $('#modal-body-image').hide();
+                  $('#modal-body-html').hide()
                 } else if (contentFormat === 'Image') {
                   // Update modal body for Video format
                   $('#modal-body-pdf').hide();
                   $('#modal-body-video').hide();
-                  $('#modal-body-image').show()
+                  $('#modal-body-image').show();
+                  $('#modal-body-html').hide()
+                }else if (contentFormat === 'HTML'){
+                  // Handle other formats or show a default modal body
+                  $('#modal-body-pdf').hide();
+                  $('#modal-body-video').hide();
+                  $('#modal-body-image').hide();
+                  $('#modal-body-html').show()
                 }else {
                   // Handle other formats or show a default modal body
                   $('#modal-body-pdf').hide();
@@ -544,7 +572,7 @@
             })
 
           // Add custom filter dropdown for Content Type
-            var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value="" selected disabled>Select Format</option><option value="">All</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
+            var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value="" selected disabled>Select Format</option><option value="">All</option><option value="HTML">HTML</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
               .css('width', '150px')
               .css('margin-top','7px')
               .css('margin-left','10px')

@@ -37,11 +37,12 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Welcome, Admin</h3>
+            <div class="d-flex justify-content-center">
+                <h3>Admin</h3>
+            </div>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
                 <li>
                     <a href="/admin/home.php">Home</a>
                 </li>

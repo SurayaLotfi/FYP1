@@ -42,7 +42,7 @@
             </ul>
                 <ul class="navbar-nav nav-underline" >
                     <li class = "nav-item">
-                        <a href="user_home.html" class="nav-link"><b>Home</a></b>
+                        <a href="user_home.php" class="nav-link"><b>Home</a></b>
                     </li>
                     <li class = "nav-item">
                         <a href="KB.php" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page">Knowledge Base</a>

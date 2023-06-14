@@ -25,7 +25,7 @@ if(isset($_POST["submit"])){
             if($_SESSION["position"] == "Admin")
                 header("Location: ../admin/manage-content/manage.php"); //login successful, set the session id and navigate user to the homepage.
             else 
-                header("Location: ../user/user_home.html");
+                header("Location: ../user/user_home.php");
         }
         else{
             echo "<script> alert('Wrong Password or Email!'); </script>";

@@ -53,16 +53,16 @@ if(!empty($_SESSION["id"])){
             </ul>
                 <ul class="navbar-nav nav-underline" >
                     <li class = "nav-item">
-                        <a href="user_home.html" class="nav-link"><b>Home</a></b>
+                        <a href="user_home.php" class="nav-link"><b>Home</a></b>
                     </li>
                     <li class = "nav-item">
-                        <a href="KB.html" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page">Knowledge Base</a>
+                        <a href="KBhome.html" class="nav-link active" style="color:rgb(138, 239, 255)" aria-current="page">Knowledge Base</a>
                     </li>
                     <li class = "nav-item">
                         <a href="classes.html" class="nav-link">Classes</a>
                     </li>
                     <li class = "nav-item">
-                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="dashboard.php" class="nav-link">Dashboard</a>
                     </li>
 
                 </ul>
