@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -62,7 +62,7 @@
             $total_users = mysqli_num_rows($result); //calculating total number of rows that follows the rule
 
             //Retrieving KB data
-            $query = "SELECT * from manage_content WHERE content_type = 'knowledge_base'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('knowledge_base','both')";
             $result = mysqli_query($db, $query);
             $total_kb = mysqli_num_rows($result); //calculating total number of rows that follows the rule
             $query = "SELECT * from manage_content WHERE content_type IN ('knowledge_base','both') AND content_format = 'PDF'";
@@ -79,19 +79,19 @@
             $total_html_kb = mysqli_num_rows($result); //calculating total number of rows that follows the rule
 
             //Retrieving Class Data
-            $query = "SELECT * from manage_content WHERE content_type = 'classes'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('classes','both')";
             $result = mysqli_query($db, $query);
             $total_class = mysqli_num_rows($result); //calculating total number of rows that follows the rule
-            $query = "SELECT * from manage_content WHERE content_type = 'classes' AND content_format = 'PDF'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('classes','both') AND content_format = 'PDF'";
             $result = mysqli_query($db, $query);
             $total_pdf_class = mysqli_num_rows($result); //calculating total number of rows that follows the rule
-            $query = "SELECT * from manage_content WHERE content_type = 'classes' AND content_format = 'Video'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('classes','both') AND content_format = 'Video'";
             $result = mysqli_query($db, $query);
             $total_video_class = mysqli_num_rows($result); //calculating total number of rows that follows the rule
-            $query = "SELECT * from manage_content WHERE content_type = 'classes' AND content_format = 'Images'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('classes','both') AND content_format = 'Image'";
             $result = mysqli_query($db, $query);
             $total_image_class = mysqli_num_rows($result); //calculating total number of rows that follows the rule
-            $query = "SELECT * from manage_content WHERE content_type = 'classes' AND content_format = 'HTML'";
+            $query = "SELECT * from manage_content WHERE content_type IN ('classes','both') AND content_format = 'HTML'";
             $result = mysqli_query($db, $query);
             $total_html_class = mysqli_num_rows($result); //calculating total number of rows that follows the rule
 
@@ -196,7 +196,7 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                            <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 460px;">
+                            <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 480px;">
                                 <div class="card-header">Employees</div>
                                     <div class="card-body">
                       
@@ -246,7 +246,7 @@
                     
                     <div class="col">
                         <!-- <div style="border: 1px solid; border-radius: 10px; height: 500px; padding: 10px"  id="detailSection"> -->
-                        <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 460px;" >
+                        <div class="card text-light bg-dark mb-3" style="max-width: 100%; height: 480px;" >
                                 <div class="card-header">Details</div>
                                     <div class="card-body" id="detailSection">
                                     Click 'View Details' for output

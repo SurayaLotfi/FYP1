@@ -164,7 +164,7 @@ if(!empty($_SESSION["id"])){
                 }
             })
             // Add custom filter dropdown
-        var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Select Format</option><option value=>All</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
+        var filterDropdown = $('<select class="form-select form-control form-control-sm mb-3" aria-label="Content Type Filter"><option value=""selected disabled>Select Format</option><option value=>All</option><option value="HTML">HTML</option><option value="pdf">PDF</option><option value="video">Video</option><option value="image">Image</option></select>')
         .css('width','150px')
         .css('margin-left', '530px')
         .css('margin-top', '10px')

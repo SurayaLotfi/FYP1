@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home</title>
+    <title>Create</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -74,14 +74,14 @@
             </div>
             <div class="row">
                 <div class="buttons">
-                    <a href="manage.php">
-                    <button type="button" class="btn btn-info ">View</button>
-                    </a>
                     <a href="upload.php">
                     <button type="button" class="btn btn-info">Upload Content</button>
                     </a>
                     <a href="create.php">
                     <button type="button" class="btn btn-info active">Create Content</button>
+                    </a>
+                    <a href="manage.php">
+                    <button type="button" class="btn btn-info ">View</button>
                     </a>
                 </div>
             </div>

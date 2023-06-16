@@ -18,7 +18,7 @@ if(isset($_POST['updateeditor'])){
     // Check whether the editor content is empty
     if(!empty($editorContent)){
         // Insert editor content in the database
-        $sql = "UPDATE onboarding set department = '$department', content_name='$content_name', content='$editorContent, WHERE id=$id";
+        $sql = "UPDATE onboarding set department = '$department', content_name='$content_name', content='$editorContent' WHERE id=$id";
         $insert = mysqli_query($db, $sql);
         // If database insertion is successful
         if($insert){

@@ -38,7 +38,7 @@
                     <a href="home.php">Home</a>
                 </li>
                 <li>
-                    <a href="./manage-content/manage.php">Manage Content</a>
+                    <a href="./manage-content/upload.php">Manage Content</a>
                 </li>
                 <li>
                     <a href="./onboarding/onboarding.php">Onboarding</a>
@@ -57,9 +57,9 @@
        
         <div class="container-fluid"  style="background-color: #001D47; padding:50px; color: white;">
             <!-- We'll fill this with dummy content -->
-            
+            <div class="text" style="display: flex; justify-content: center; margin: 10px; color: white;">
                 <h1>Welcome Back, Admin</h1>
-              
+            </div> 
         
             <div class="text" style="display: flex; justify-content: center; margin: 10px; color: white;">
                 <h1>Explore What We Have For You</h1>
@@ -74,7 +74,7 @@
                             <div class="card-body">
                             <h5 class="card-title"  style="color:black">Manage Content</h5>
                             <p class="card-text">Create or Upload knowledge for your employees.</p>
-                            <a href="./manage-content/manage.php" class="btn btn-primary">Go to Manage Content</a>
+                            <a href="./manage-content/upload.php" class="btn btn-primary">Go to Manage Content</a>
                             </div>
                         </div>
                 </div>

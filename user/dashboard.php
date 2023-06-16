@@ -189,7 +189,7 @@ include "connect.php";
                                                     $result_users = mysqli_query($db, $query_users);
                                                     $row_users = mysqli_fetch_assoc($result_users);
                                                     $users = $row_users['username'];
-                                                    $department = $row_users['department'];
+                                                    $user_department = $row_users['department'];
                                                     ?>
                                                     <div class="row align-items-center">
                                                         <div class="col-2">
@@ -209,7 +209,7 @@ include "connect.php";
                                                         </div>
                                                         <div class="col">
                                                         <div style="margin-bottom: 30px">
-                                                            <h4><?php echo $department; ?></h4>
+                                                            <h4><?php echo $user_department; ?></h4>
                                                         </div>  
                                                         </div>
                                                     </div>
@@ -239,10 +239,11 @@ include "connect.php";
                                     
                                     <p><strong>Username:</strong> <?php echo $username ?></p>
                                     <hr>
-                                    <p><strong>Department:</strong> <?php echo $department ?></p>
-                                    <hr>
                                     <p><strong>Email:</strong> <?php echo $email ?></p>
                                     <hr>
+                                    <p><strong>Department: </strong><?php echo $department ?></p>
+                                    <hr>
+
                                     <button type="button" class = "btn btn-success" data-toggle="modal" data-target="#editbutton">Edit</button>
                                 </div>
                                    <!--Modal for edit-->
@@ -264,7 +265,7 @@ include "connect.php";
                                                 <br>
                                                 <div class="form-group">
                                                     <label for="Username" style="color: black">Username</label>
-                                                    <input type="text" name="username" class="form-control" id="exampleFormControlInput1" value=<?php echo $username?>>
+                                                    <input type="text" name="username" class="form-control" id="exampleFormControlInput1" value=<?php echo $username?> >
                                                 </div>
                                                 <br>
                                                 <div class="form-group">

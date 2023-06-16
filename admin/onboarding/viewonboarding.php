@@ -297,7 +297,7 @@
                
                 <?php
                 include "connect.php";
-                $query = "SELECT * FROM onboarding";
+                $query = "SELECT * FROM onboarding ORDER BY id DESC";
                 $result = mysqli_query($db, $query);
                
                  $i = 1;
@@ -366,7 +366,7 @@
               Swal.fire({
                   icon: 'success',
                   title: 'Success!',
-                  text: 'File Uploaded.'
+                  text: 'Uploaded.'
               })
               </script>      
       <?php
@@ -376,7 +376,7 @@
               Swal.fire({
                   icon: 'success',
                   title: 'Success!',
-                  text: 'File Deleted.'
+                  text: 'Content Deleted.'
               })
               </script>      
       <?php
@@ -386,7 +386,7 @@
               Swal.fire({
                   icon: 'success',
                   title: 'Success!',
-                  text: 'File Updated.'
+                  text: 'Content Updated.'
               })
               </script>      
       <?php

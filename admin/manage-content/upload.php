@@ -11,7 +11,7 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Home</title>
+    <title>Upload</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -72,14 +72,14 @@
                 </div>
                 <div class="row">
                     <div class="buttons">
-                    <a href="manage.php">
-                        <button type="button" class="btn btn-info ">View</button>
-                        </a>
                         <a href="upload.php">
                         <button type="button" class="btn btn-info active">Upload Content</button>
                         </a>
                         <a href="create.php">
                         <button type="button" class="btn btn-info ">Create Content</button>
+                        </a>
+                        <a href="manage.php">
+                        <button type="button" class="btn btn-info ">View</button>
                         </a>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ if(!empty($_SESSION["id"])){ //if a user is still in a session and wants to logi
 if(isset($_POST["submit"])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $email = $_POST['email'];
+    
 
     $result = mysqli_query($db, "SELECT * FROM users WHERE username = '$username'"); //retrieve dulu row yang ada same username
     $row = mysqli_fetch_assoc($result); //get the row
@@ -47,6 +47,7 @@ if(isset($_POST["submit"])){
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <link rel = "stylesheet" href = "testing.css">
+        <link rel = "stylesheet" href = "signup.css">
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Rubik:wght@500&display=swap" rel="stylesheet">
@@ -56,22 +57,25 @@ if(isset($_POST["submit"])){
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">   
         </head>
         <body>
-            <div class="container">
-                <h1><center>LOGIN</center></h1>
-                <form class="" action="" method="post" autocomplete="off">
-                <label for="username">Username : </label>
-                    <input type="text" name="username" id = "username" required value=""> <br>
-                <label for="email">Email : </label>
-                    <input type="email" name="email" id = "email"  value=""> <br>
-                <label for="password">Password : </label>
-                    <input type="password" name="password" id = "password" required value=""> <br>
-                <button class="btn btn-info" type="submit" name="submit">Login</button>
+        <div class="container">
+            <div class="login-container">
+                <h1 class="text-center">LOGIN</h1>
+                <form class="login-form" action="" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <button class="btn btn-info" type="submit" name="submit" style="margin-top: 30px">Login</button>
                 </form>
-
                 <br>
-                 <a  href="signup.php" class="btn btn-success" >Register</a>
-
+                <a href="signup.php" class="btn btn-success">Register</a>
             </div>
+        </div>
+
         </body>
     
 </html>

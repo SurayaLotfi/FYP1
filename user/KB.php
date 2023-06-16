@@ -36,7 +36,7 @@
                         </svg>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-start">
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                      <li><a class="dropdown-item" href="/Sign up/logout.php">Logout</a></li>
                       </ul>
                 </li>
             </ul>

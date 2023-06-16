@@ -4,3 +4,12 @@
     width: 100%;
     background-image: url(".../background-image");
 }
+
+.login-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 150px;
+}

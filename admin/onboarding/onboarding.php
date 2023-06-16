@@ -213,7 +213,7 @@
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Success!',
-                                        text: 'File Uploaded.'
+                                        text: 'Content Uploaded.'
                                     })
                                     </script>
                                     
