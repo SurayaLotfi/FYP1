@@ -7,6 +7,8 @@ if(!empty($_SESSION["id"])){
     $username = $_SESSION["username"];
     $department = $_SESSION["department"];
     $email = $_SESSION["email"];
+}else{
+    header("location:/Sign up/logout.php");
 }
 ?>
 <!DOCTYPE html>

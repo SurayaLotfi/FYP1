@@ -132,7 +132,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
                 
                 //update into database
                 $insert = $db -> query("UPDATE manage_content set id=$id, content_name='$content_name',
-                content_format='$content_format', content_type='$content_type', content='$content' WHERE id=$id");
+                content_format='$content_format', content_type='$content_type', content='$new_img_name' WHERE id=$id");
    
                if($insert){
                 header('location: manage.php?status=updatesuccess');
@@ -161,7 +161,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 
 //for pdf
 include "dbConfig.php";
-if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
+if (isset($_POST['updatepdf']) && isset($_FILES['my_pdf'])) {
   
 
     $pdf_name = $_FILES['my_pdf']['name'];
@@ -183,13 +183,13 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
             $allowed_exs = array("pdf");
 
             if(in_array($pdf_ex_lc, $allowed_exs)){
-                $new_pdf_name = uniqid("IMG-",true).'.'.$pdf_ex_lc;
-                $pdf_upload_path = 'img/'.$new_pdf_name;
+                $new_pdf_name = uniqid("PDF-",true).'.'.$pdf_ex_lc;
+                $pdf_upload_path = 'pdf/'.$new_pdf_name;
                 move_uploaded_file($tmp_name, $pdf_upload_path);
                 
                 //update into database
                 $insert = $db -> query("UPDATE manage_content set id=$id, content_name='$content_name',
-                content_format='$content_format', content_type='$content_type', content='$content' WHERE id=$id");
+                content_format='$content_format', content_type='$content_type', content='$new_pdf_name' WHERE id=$id");
    
                if($insert){
                 header('location: manage.php?status=updatesuccess');
@@ -418,7 +418,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_pdf'])) {
                                 </div>
 
                                 <div style="margin: 15px;">
-                                    <input type="submit" name="submit"  value="Update PDF">
+                                    <input type="submit" name="updatepdf"  value="Update PDF">
                                 </div>
 
                                 </form>

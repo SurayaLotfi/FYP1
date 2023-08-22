@@ -142,14 +142,14 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
                 echo '
                 <script type = "text/javascript">
                   alert("Unsuccessful");
-                  window.location = "viewonboarding.php";
+                  window.location = "upload.php";
                 </script>';
                }
             }else{
                 echo '
                 <script type = "text/javascript">
                   alert("Wrong format");
-                  window.location = "viewonboarding.php";
+                  window.location = "upload.php";
                 </script>';
             }
         }
